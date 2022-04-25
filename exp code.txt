@@ -1,0 +1,152 @@
+Experiment No:-1[A]
+
+CODE:
+
+text = """
+
+Hello Mr. Smits, how are you doing? The weather is great, and city is awesome.The sky is pinkish-blue. You shouldn't eat cardboard
+       """
+
+#tokenization
+
+from nitk.tokenize import RegexpTokenizer
+tokenizer= RegexpTokenizer (r'\w+') 
+print ("Regular Expression Tokenizer: ")
+print (tokenizer.tokenize (text)) 
+from nitk. tokenize import sent_tokenize
+tokenized text sent_tokenize (text)
+print ("Sentence tokenizing: ")
+print (tokenized text) 
+from nltk.tokenize import word tokenize
+tokenized_word = word_tokenize (text)
+print ("Word tokenizing: ") 
+print (tokenized_word)
+
+
+Experiment No:-1[B]
+
+CODE:
+
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize 
+example_sent = "This is a sample sentence, showing off the stop words filtration."
+stop_words = set (stopwords.words ('english')) word_tokens = word_tokenize (example_sent)
+w=1
+filtered sentencel = []
+for w in word tokens:
+if w not in stop_words:
+ filtered_sentence1.append(w)
+
+
+
+
+
+Experiment No:-2
+
+CODE:
+
+import spacy 
+nlp = spacy.load('en_core_web_sm')
+
+text = "The Federal Bureau of Investigation has been ordered to track down as many as 3,000 Iraqis in this country whose visas have expired, the Justice Department said yesterday."
+
+doc = nlp(text)
+
+#Loop over items in the Doc object, using the variable 'token" to refer to items in the list for token in doc: 
+
+#Print the token and the results of morphological analysis 
+  print (token,token.morph)
+     #'Case=Nom|Number=Sing|Person=1|PronType=Prs'
+print(token.morph.get("PronType"))
+
+
+
+
+Experiment No:-3
+
+CODE:
+
+wordstring = 'it was the beat of times it was the worst of times' 
+wordlist = wordstring.split()
+print("Sentence: "+wordstring) 
+print ("First 2-gram of sentence:")
+print (wordlist [0:2])
+
+print("\n2-gram of sentence:")
+i = 0 
+for items in wordlist: 
+     if len (wordlist[i: i+2])!=2:
+     break 
+     print (wordlist[i: i+2])
+     i += 1 
+
+#Given a list of words and a number n, return a list 
+# of n-grams.
+def getNGrams (wordlist, n): 
+    return [wordlist[i:i+n] for i in range
+      (len(wordlist)-(n-1))]
+
+testl = 'here are four words' 
+test2 = 'this test sentence has eight words in it'
+print("\nText length of less than 4:")
+print (getNGrams(test1.split(), 5))
+print("\nText length of more than 4:") 
+print(getNGrams(test2.split(), 5))
+
+
+
+
+
+Experiment No:-4
+
+CODE:
+
+from nltk import pos_tag 
+text="Learn Natural Language Processing from Jurafasky Martin and make study easy".split() 
+print ("After Split:", text) 
+tokens_tag = pos_tag(text) # pos_tag is the builtin library function in nltk 
+print("After Token:", tokens_tag)
+
+
+
+
+Experiment No:-5
+
+CODE:
+
+import nltk 
+text = "learn the Data Analytics from Inteliment " tokens = nitk.word_tokenize (text)
+print (tokens)
+tag = nltk.pos_tag(tokens)
+print (tag)
+grammar = "NP: (<DT>?<JJ>*<NN>}"
+cp =nltk.RegexpParser(grammar)
+result = cp.parse(tag) 
+print (result)
+result.draw() # It will draw the pattern graphically which can be seen in Noun Phrase chunking
+
+
+
+
+
+Experiment No:- 6
+
+CODE:
+
+Import nltk 
+import time
+contentarray= ['Blockchain doing lately',
+               'Overall already Starbucks', 
+               'Begin Food Products Going well']
+def processLanguage():
+try:
+  for item in contentarray:
+      tokenized nltk.word_tokenize (item)
+      tag = nltk.pos_tag (tokenized) 
+      print (tag)
+      nameEnt=nltk.ne_chunk (tag)
+      nameEnt.draw()
+      time.sleep (1)
+   except Exception():
+     print(str())
+processLanguage()
